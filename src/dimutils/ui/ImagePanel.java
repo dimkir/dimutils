@@ -1,11 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package dimutils.ui;
 
+import dimutils.Utils;
 import java.io.File;
 
 /**
@@ -78,4 +73,21 @@ public class ImagePanel extends javax.swing.JPanel {
         MyListModel myListModel = (MyListModel) jList1.getModel();
         myListModel.addImageFiles(imageFiles);
     }
+    
+    
+    
+    /**
+     * Loads images into the list view.
+     * 
+     * @param dir 
+     */
+    public void loadImagesFromDir(File dir) {
+        
+        File[] imageFiles = Utils.filterImageFiles(dir);
+        
+        for (File file : imageFiles) {
+            System.out.println("Found image: " + file.getAbsolutePath());
+        }
+        this.addImagesFromFiles(imageFiles);
+    }    
 }

@@ -119,6 +119,39 @@ public class Utils {
 
             }        
 
+    /**
+     * Filters image files from the directory:
+     * @param dir directory with Image files. (MUST be A DIRECTORY) isDir() true).
+     * @return always valid array (maybe of length 0 in case there were no image files).
+     */
+    public static File[] filterImageFiles(File dir) {
+        if (!dir.isDirectory()) {
+            return new File[0];
+        }
+        File[] list = dir.listFiles(new FileFilter() {
+            @Override
+            public boolean accept(File pathname) {
+                String file = pathname.getName();
+                String[] allowedImageExtensions = {"png", "jpg", "jpeg", "gif", "bmp"};
+                if (fileNameHas(file, allowedImageExtensions)) {
+                    return true;
+                }
+                return false;
+            }
+        });
+        return list;
+    }
+
+    private static boolean fileNameHas(String file, String[] allowedImageExtensions) {
+        file = file.toLowerCase();
+        for (String ext : allowedImageExtensions) {
+            if (file.endsWith(ext.toLowerCase())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 
 }// Utils.class

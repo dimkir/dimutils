@@ -90,7 +90,7 @@ public class SimpleGridView extends javax.swing.JFrame {
         if ( evt.getActionCommand() == JFileChooser.APPROVE_SELECTION ){
             //JOptionPane.showMessageDialog(this, evt.toString());
             File dir = jFileChooser1.getSelectedFile();
-            loadImagesFromDir(dir);
+            imagePanel1.loadImagesFromDir(dir);
             
         }
         
@@ -136,58 +136,5 @@ public class SimpleGridView extends javax.swing.JFrame {
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
-
-    /**
-     * Loads images into the list view.
-     * 
-     * @param dir 
-     */
-    private void loadImagesFromDir(File dir) {
-        
-        File[] imageFiles = filterImageFiles(dir);
-        
-        for (File file : imageFiles) {
-            System.out.println("Found image: " + file.getAbsolutePath());
-        }
-        imagePanel1.addImagesFromFiles(imageFiles);
-    }
-
-    
-    /**
-     * Filters image files from the directory:
-     * @param dir directory with Image files. (MUST be A DIRECTORY) isDir() true).
-     * @return always valid array (maybe of length 0 in case there were no image files).
-     */
-    private File[] filterImageFiles(File dir) {
-        // TODO: implement filterImageFiles
-        if ( !dir.isDirectory() ){
-            return new File[0];
-        }
-        File[] list = dir.listFiles(new FileFilter() {
-            
-            @Override
-            public boolean accept(File pathname) {
-                String file = pathname.getName();
-                String[] allowedImageExtensions = { "png", "jpg", "jpeg", "gif", "bmp" };
-                if ( fileNameHas( file,  allowedImageExtensions)  ){
-                    return true;
-                }
-                return false;
-            }
-
-        });
-            
-        return list;
-    }
-
-    private static boolean fileNameHas(String file, String[] allowedImageExtensions) {
-        file = file.toLowerCase();
-        for (String ext : allowedImageExtensions) {
-            if ( file.endsWith(ext.toLowerCase()) ){
-                return true;
-            }
-        }
-        return false;
-    }
         
 }
