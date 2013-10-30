@@ -5,9 +5,11 @@ package dimutils;
  * @author Ernesto Guevara
  */
 public class UL {
-    /*
-     * Returns first index of stringar which is equal to the needle. 
-     * @return -1 on error
+    /**
+     * Returns index of the first element inside of haystack which is equal(CaseInsensitive) to the needle. 
+     * @return -1 on error  
+     *         [0.. length-1]
+     * 
      */
     public static int arrayContainsStringCaseInsensitive(String[] haystack, String needle){
         for(int i = 0  ; i < haystack.length ; i++){ 
@@ -81,15 +83,21 @@ public class UL {
     
     
    
-   
+    /**
+     * Converts stringar to string in form '[value1,value2]'
+     * @param stringar
+     * @return 
+     */
     public static String stringar2str(String[] stringar) {
         StringBuilder builder = new StringBuilder();
+        builder.append('[');
         for(int i = 0 ; i < stringar.length ; i++){
             if ( i >0 ){
-                builder.append('\t');
+                builder.append(',');
             }
             builder.append(stringar[i]);
         }
+        builder.append(']');
         return builder.toString();
     }
     
@@ -128,6 +136,33 @@ public class UL {
     public static void printCWD(){
          String cwd = System.getProperty("user.dir");
          pln("Current working directory is: [" + cwd + "]");
+    }
+
+    /**
+     * Joins two stringars into one new stringar.
+     * 
+     * Always returns a new copy of the array (even if for example stringar1 was empty, and 
+     * end result is same as stringar2 array, it will still be copied to the new one.
+     * 
+     * Also we may result in valid empty (0 size) array.
+     * 
+     * @param stringar1 non-null (but CAN be empty)
+     * @param stringar2 non-null (but CAN be empty)
+     * @return 
+     */
+    public static String[] joinStringars(String[] stringar1, String[] stringar2) {
+        // TODO: implement joinStringars
+        int newLength = stringar1.length + stringar2.length;
+        String[] joined = new String[newLength];
+        int j = 0;
+        for(int i = 0 ; i < stringar1.length ; i++){
+            joined[j++] = stringar1[i];
+        }
+        
+        for(int i = 0 ; i < stringar2.length ; i++){
+            joined[j++] = stringar2[i];
+        }
+        return joined;
     }
 
 }// UL class
