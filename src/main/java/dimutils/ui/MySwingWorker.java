@@ -91,7 +91,7 @@ public class MySwingWorker extends SwingWorker<Icon, Void>
     }
     
     
-    interface IOnIconReady{
+    public interface IOnIconReady{
         void onIconReady(Icon icon);
     }
     
