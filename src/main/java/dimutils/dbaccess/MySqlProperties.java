@@ -97,6 +97,15 @@ public class MySqlProperties extends Properties {
          this(C_DEFAULT_MYSQL_PROPERTIES_RESOURCE_PATH);
      }
      
+     
+     /**
+      * Attempts to read properties from the provided path. 
+      * 
+      * @param resourcePath MUST BE ABSOLUTE (otherwise nothing will be read).
+      *         when supplied RELATIVE path, it will be read
+      *         relative to the MySqlProperties package!!!!
+      * @throws IOException 
+      */
      public MySqlProperties(String resourcePath) throws IOException{
          super();
          mResourcePath = resourcePath;
