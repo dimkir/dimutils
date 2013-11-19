@@ -3,3 +3,4 @@
 /dist/
 .gradle/
 /.nb-gradle/profiles/private/
+/target/
