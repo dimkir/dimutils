@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package dimutils.ui;
+package dimutils.imgpanel;
 
 import java.io.File;
 import javax.swing.Icon;

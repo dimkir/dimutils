@@ -1,4 +1,4 @@
-package dimutils.ui;
+package dimutils.imgpanel;
 
 import dimutils.Utils;
 import java.io.File;

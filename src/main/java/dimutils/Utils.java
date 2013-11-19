@@ -1,6 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Utils.
+ * Version 0.1a
+ * 
+ * 13 November 2013
+ * 
  */
 package dimutils;
 
