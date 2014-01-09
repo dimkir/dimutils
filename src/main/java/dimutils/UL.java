@@ -22,7 +22,12 @@ public class UL {
 
     
     
-    
+    /**
+     * Searches haystack stringar for the first exact match with needle and returns index or -1 when not found.
+     * @param haystack
+     * @param needle
+     * @return -1 when not found, valid index when found.
+     */
     public static int arrayContainsStringExactCase(String[] haystack, String needle) {
         for(int i = 0  ; i < haystack.length ; i++){ 
               if ( needle.equals(haystack[i])){
