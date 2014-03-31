@@ -4,7 +4,7 @@
   <groupId>dimutils</groupId>
   <artifactId>DimUtilsSrc</artifactId>
   <packaging>jar</packaging>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0.0</version>
   <name>DimUtilsSrc</name>
   <url>http://maven.apache.org</url>
   <dependencies>
@@ -15,4 +15,21 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  
+  
+    <distributionManagement>
+      <repository>
+        <id>my-lib-central-release</id>
+        <name>my-lib-cental</name>
+        <url>http://ec2-54-186-117-232.us-west-2.compute.amazonaws.com/artifactory/libs-release-local</url>
+      </repository>
+
+      <snapshotRepository>
+        <id>snapshots</id>
+        <name>my-libs-snapshot</name>
+        <url>http://ec2-54-186-117-232.us-west-2.compute.amazonaws.com/artifactory/libs-snapshot-local</url>
+      </snapshotRepository>
+
+    </distributionManagement>
+    <description>This is release (which we haven't modified for a year or so)</description>
 </project>
